@@ -1,0 +1,57 @@
+[2025-12-08 18:10:26] ========== ETL JOB STARTED ==========
+[2025-12-08 18:10:33] ========== ETL JOB STARTED ==========
+[2025-12-08 18:10:34] MySQL connection established successfully
+[2025-12-08 18:11:24] ========== ETL JOB STARTED ==========
+[2025-12-08 18:11:25] MySQL connection established successfully
+[2025-12-08 18:27:14] ========== ETL JOB STARTED ==========
+[2025-12-08 18:27:17] MySQL connection established successfully
+[2025-12-08 18:27:21] EXTRACTING HERE...
+[2025-12-08 18:27:43] ========== EXTRACT PHASE FINISHED ==========
+[2025-12-08 18:28:02] TRANSFORMING HERE...
+[2025-12-08 18:28:02] Transforming books data...
+[2025-12-08 18:28:04] Books: removed 1 duplicate rows
+[2025-12-08 18:28:04] Books transformed: 250011 rows, 8 columns
+[2025-12-08 18:28:04] Transforming ratings data...
+[2025-12-08 18:28:07] Ratings: dropped 0 rows with missing keys
+[2025-12-08 18:28:07] Ratings: removed 0 duplicate rows
+[2025-12-08 18:28:07] Ratings transformed: 1149780 rows, 3 columns
+[2025-12-08 18:28:07] Transforming users data...
+[2025-12-08 18:28:10] Users: removed 0 duplicate rows
+[2025-12-08 18:28:10] Users transformed: 278700 rows, 6 columns
+[2025-12-08 18:28:10] Creating Excel staging file...
+[2025-12-08 18:32:56] Staging Excel created: D:\Work\Data Analytics\ETL\books_data\books_staging.xlsx
+[2025-12-08 18:32:56] ========== TRANSFORM PHASE FINISHED ==========
+[2025-12-08 18:33:10] ========== LOAD PHASE STARTED ==========
+[2025-12-08 18:39:14] Loaded table 'books' -> 250011 rows
+[2025-12-08 18:40:02] Loaded table 'ratings' -> 1149780 rows
+[2025-12-08 18:40:20] Loaded table 'users' -> 278700 rows
+[2025-12-08 18:40:20] All sheets loaded successfully.
+[2025-12-08 18:40:20] ========== LOAD PHASE FINISHED ==========
+[2025-12-08 18:40:20] ========== ETL JOB COMPLETED ==========
+
+[2025-12-08 18:42:07] ========== ETL JOB STARTED ==========
+[2025-12-08 18:42:08] MySQL connection established successfully
+[2025-12-08 18:42:10] EXTRACTING HERE...
+[2025-12-08 18:42:29] ========== EXTRACT PHASE FINISHED ==========
+[2025-12-08 18:42:36] TRANSFORMING HERE...
+[2025-12-08 18:42:36] Transforming books data...
+[2025-12-08 18:42:37] Books: removed 1 duplicate rows
+[2025-12-08 18:42:37] Books transformed: 250011 rows, 8 columns
+[2025-12-08 18:42:37] Transforming ratings data...
+[2025-12-08 18:42:42] Ratings: dropped 0 rows with missing keys
+[2025-12-08 18:42:43] Ratings: removed 0 duplicate rows
+[2025-12-08 18:42:43] Ratings transformed: 1149780 rows, 3 columns
+[2025-12-08 18:42:43] Transforming users data...
+[2025-12-08 18:42:46] Users: removed 0 duplicate rows
+[2025-12-08 18:42:46] Users transformed: 278700 rows, 6 columns
+[2025-12-08 18:42:46] Creating Excel staging file...
+[2025-12-08 18:47:27] Staging Excel created: D:\Work\Data Analytics\ETL\books_data\books_staging.xlsx
+[2025-12-08 18:47:27] ========== TRANSFORM PHASE FINISHED ==========
+[2025-12-08 18:47:34] LOADING HERE...
+[2025-12-08 18:53:55] Loaded sheet 'books' -> 250011 rows
+[2025-12-08 18:54:40] Loaded sheet 'ratings' -> 1149780 rows
+[2025-12-08 18:54:57] Loaded sheet 'users' -> 278700 rows
+[2025-12-08 18:54:57] All sheets loaded successfully.
+[2025-12-08 18:54:57] ========== LOAD PHASE FINISHED ==========
+[2025-12-08 18:54:57] ========== ETL JOB COMPLETED ==========
+
