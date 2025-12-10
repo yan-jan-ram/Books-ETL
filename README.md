@@ -78,12 +78,12 @@ Books-ETL/
 ## 🧠 Key Features
 
 #### ✔ Robust error-handled CSV extraction  
-### ✔ Column-name normalization  
-### ✔ Duplicate & invalid data handling  
-### ✔ Location parsing (city, state, country)  
-### ✔ Excel staging with multi-sheet splitting  
-### ✔ MySQL bulk load using SQLAlchemy  
-### ✔ Structured logging with timestamps  
+#### ✔ Column-name normalization  
+#### ✔ Duplicate & invalid data handling  
+#### ✔ Location parsing (city, state, country)  
+#### ✔ Excel staging with multi-sheet splitting  
+#### ✔ MySQL bulk load using SQLAlchemy  
+#### ✔ Structured logging with timestamps  
 
 ## 📝 Logging Example (etl_log.txt)
 ```log
