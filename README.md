@@ -1,6 +1,7 @@
-![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
-![Tool](https://img.shields.io/badge/Built%20with-Python-blue?logo=python)
-![Domain](https://img.shields.io/badge/Domain-BooksRatingsUsers-darkblue)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+![Built With](https://img.shields.io/badge/Built%20With-Python-blue?logo=python)
+![Notebook](https://img.shields.io/badge/Environment-Jupyter-orange?logo=jupyter)
+![Dataset](https://img.shields.io/badge/Dataset-CSV%20Files-yellow)
 
 # 📚 Books ETL Pipeline (Python → Excel → MySQL)
 
@@ -60,4 +61,104 @@ The final cleaned datasets are loaded into **MySQL tables**:
 ---
 
 ## 🗂 Project Structure
+```DAX
+Books-ETL/
+│
+├── etl_log.txt # Auto-generated log file
+├── books_staging.xlsx # Excel staging output
+├── data/
+│ ├── books.csv
+│ ├── ratings.csv
+│ └── users.csv
+├── code/
+│ └── books_etl.ipynb # Jupyter notebook with full ETL logic
+└── README.md
+```
 
+## 🧠 Key Features
+
+### ✔ Robust error-handled CSV extraction  
+### ✔ Column-name normalization  
+### ✔ Duplicate & invalid data handling  
+### ✔ Location parsing (city, state, country)  
+### ✔ Excel staging with multi-sheet splitting  
+### ✔ MySQL bulk load using SQLAlchemy  
+### ✔ Structured logging with timestamps  
+
+## 📝 Logging Example (etl_log.txt)
+```log
+[2025-12-10 18:21:01] ========= ETL JOB STARTED =========
+[2025-12-10 18:21:01] MySQL connection established successfully
+[2025-12-10 18:21:02] Loaded books.csv - 250012 rows
+[2025-12-10 18:21:02] Loaded ratings.csv - 1149780 rows
+[2025-12-10 18:21:02] Loaded users.csv - 278700 rows
+[2025-12-10 18:21:03] Books: removed 1 duplicate rows
+[2025-12-10 18:21:05] Staging Excel created
+[2025-12-10 18:21:20] Loaded sheet 'books' -> 250011 rows
+[2025-12-10 18:21:21] Loaded sheet 'ratings' -> 1149780 rows
+[2025-12-10 18:21:22] Loaded sheet 'users' -> 278700 rows
+[2025-12-10 18:21:22] ========= ETL JOB COMPLETED =========
+```
+
+## 🧮 Core ETL Code Snippet
+
+### **Column Cleaning Function**
+```python
+def edit_columns(df):
+    df = df.copy()
+    df.columns = (
+        df.columns
+        .str.strip()
+        .str.lower()
+        .str.replace(' ', '_')
+        .str.replace('-', '_')
+        .str.replace(r'[^0-9a-z_]', '', regex=True)
+    )
+    return df
+```
+
+### **Extract Function**
+```python
+def read_csv_safe(filepath):
+    df = pd.read_csv(
+        filepath, 
+        sep=';', 
+        quoting=csv.QUOTE_NONE, 
+        encoding='latin-1', 
+        on_bad_lines='skip',
+        engine='python'
+    )
+    df.columns = [c.strip().strip('"') for c in df.columns]
+    df = edit_columns(df)
+    return df
+```
+
+### **Load to MySQL**
+```python
+def load_to_mysql(df, table):
+    df.to_sql(
+        name=table,
+        con=engine,
+        if_exists='replace',
+        index=False
+    )
+    log_message(f"Loaded sheet '{table}' -> {df.shape[0]} rows")
+```
+
+## 🛠 Technologies Used
+
+- Python (Pandas, SQLAlchemy, OpenPyXL)
+- MySQL Workbench
+- Jupyter Notebook
+- Structured Logging
+- Excel Staging Pipeline
+
+
+## 📌 Summary
+
+- This project demonstrates a real-world production-style ETL process, including:
+- Working with large datasets (1M+ rows)
+- Data cleaning & transformation logic
+- Retry-safe extraction
+- Logging for auditability
+- Database loading automation
