@@ -1,7 +1,7 @@
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 ![Built With](https://img.shields.io/badge/Built%20With-Python-blue?logo=python)
 ![Notebook](https://img.shields.io/badge/Environment-Jupyter-orange?logo=jupyter)
-![Dataset](https://img.shields.io/badge/Dataset-CSV%20Files-yellow)
+![Dataset](https://img.shields.io/badge/Dataset-CSV%20Files-purple)
 
 # 📚 Books ETL Pipeline (Python → Excel → MySQL)
 
